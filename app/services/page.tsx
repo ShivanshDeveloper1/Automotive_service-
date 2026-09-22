@@ -1,0 +1,11 @@
+import Link from "next/link";
+import { SectionHeading } from "../components/SectionHeading";
+import { ServiceCard } from "../components/ServiceCard";
+import { getService, serviceCategories } from "../data/services";
+
+export const metadata = { title: "Services", description: "Explore detailing, window tinting, paint, collision repair, rust protection, undercoating, and maintenance in Winnipeg." };
+
+export default function ServicesPage() {
+  let index = 0;
+  return <><section className="page-hero services-hero"><div className="container"><p className="eyebrow">Complete automotive care</p><h1>Complete Automotive<br /><em>Care Under One Roof.</em></h1><p>From a clean interior to collision and body services, vehicle protection, and routine maintenance, find the right next step for your vehicle.</p></div></section><section className="services-overview"><div className="container"><SectionHeading eyebrow="The service menu" title="Explore the ways we can help." description="Every service is built around a clear assessment, careful work, and a straightforward conversation about your vehicle." />{serviceCategories.map((category) => <section className="service-category-section" key={category.name}><div className="service-category-heading"><div><p className="eyebrow">{category.name}</p><h2>{category.name}</h2></div><p>{category.description}</p></div><div className="service-list">{category.services.map((slug) => { const service = getService(slug); if (!service) return null; const currentIndex = index++; return <ServiceCard key={service.slug} service={service} index={currentIndex} />; })}</div></section>)}</div></section><section className="contact-band"><div className="container contact-band-inner"><div><p className="eyebrow">Need help choosing?</p><h2>Start with a conversation<br /><span>about your vehicle.</span></h2></div><div className="cta-actions"><Link className="button button-dark" href="/contact">Contact Pegcity <span aria-hidden="true">↗</span></Link><a className="button button-dark" href="tel:4378930284">Call 437-893-0284</a></div></div></section></>;
+}
