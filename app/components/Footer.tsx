@@ -10,7 +10,7 @@ export function Footer() {
           <p>Careful automotive service for the way your vehicle looks, feels, and moves through the city.</p>
         </div>
         <div><p className="footer-label">Explore</p><nav className="footer-links"><Link href="/about">About</Link><Link href="/services">Services</Link><Link href="/testimonials">Testimonials</Link><Link href="/contact">Contact</Link></nav></div>
-        <div><p className="footer-label">Contact</p><address className="footer-contact"><span>770 Mission Street<br />Winnipeg, MB R2J 0A3</span><a href="tel:4378930284">+1 (437) 237-4066</a><a href="mailto:Pegcitycustomz@gmail.com">Pegcitycustomz@gmail.com</a></address></div>
+        <div><p className="footer-label">Contact</p><address className="footer-contact"><span>770 Mission Street<br />Winnipeg, MB R2J 0A3</span><a href="tel:4378930284">437-983-0284</a><a href="mailto:Pegcitycustomz@gmail.com">Pegcitycustomz@gmail.com</a></address></div>
       </div>
       <div className="container footer-bottom"><span>© {new Date().getFullYear()} Pegcity Collisions and Customs</span><span>Built for Winnipeg roads.</span></div>
     </footer>

@@ -37,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     "@type": "AutoRepair",
     name: "Pegcity Collisions and Customs",
     email: "Pegcitycustomz@gmail.com",
-    telephone: "+1 (437) 237-4066",
+    telephone: "437-983-0284",
     address: {
       "@type": "PostalAddress",
       streetAddress: "770 Mission Street",

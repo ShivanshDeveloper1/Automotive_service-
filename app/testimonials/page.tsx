@@ -120,7 +120,7 @@ export default function TestimonialsPage() {
               Contact Pegcity <span aria-hidden="true">↗</span>
             </Link>
             <a className="button button-dark" href="tel:4378930284">
-              Call +1 (437) 237-4066
+              Call 437-983-0284
             </a>
           </div>
         </div>
