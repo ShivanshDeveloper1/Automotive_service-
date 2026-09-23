@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import WhatsAppButton from "./components/WhatsappComponenent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     "@type": "AutoRepair",
     name: "Pegcity Collisions and Customs",
     email: "Pegcitycustomz@gmail.com",
-    telephone: "437-893-0284",
+    telephone: "+1 (437) 237-4066",
     address: {
       "@type": "PostalAddress",
       streetAddress: "770 Mission Street",
@@ -55,7 +56,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
         />
         <Header />
-        <main>{children}</main>
+        <main>{children}
+          <WhatsAppButton />
+
+        </main>
         <Footer />
       </body>
     </html>
