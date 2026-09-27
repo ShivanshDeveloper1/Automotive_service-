@@ -52,7 +52,7 @@ export default function ContactPage() {
                 <span>
                   770 Mission Street
                   <br />
-                  Winnipeg, MB R2J 0A3, Canada
+                  Winnipeg, MB R2J 0A3
                 </span>
               </div>
 
