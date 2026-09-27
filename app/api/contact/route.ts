@@ -10,7 +10,7 @@ export async function POST(request: Request) {
 
     const { error } = await resend.emails.send({
       from: "Pegcity Website <onboarding@resend.dev>",
-      to: ["Pegcitycustomz@gmail.com"],
+   to: ["pegcitycustomz@gmail.com"],
       replyTo: email,
       subject: `New service inquiry${service ? ` - ${service}` : ""}`,
       html: `
