@@ -16,20 +16,44 @@ const serviceOptions = [
 export function ContactForm() {
   const [status, setStatus] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const name = String(form.get("name") || "");
-    const email = String(form.get("email") || "");
-    const service = String(form.get("service") || "");
-    const vehicle = String(form.get("vehicle") || "");
-    const message = String(form.get("message") || "");
-    const subject = encodeURIComponent(`Pegcity service inquiry${service ? ` - ${service}` : ""}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${String(form.get("phone") || "Not provided")}\nPreferred service: ${service || "Not selected"}\nVehicle type: ${vehicle || "Not provided"}\n\nMessage:\n${message}`);
-    setStatus("Opening your email app with this inquiry ready to send.");
-    window.location.href = `mailto:Pegcitycustomz@gmail.com?subject=${subject}&body=${body}`;
-  }
+async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  event.preventDefault();
 
+  const formElement = event.currentTarget;
+  const form = new FormData(formElement);
+
+  const data = {
+    name: String(form.get("name") || ""),
+    email: String(form.get("email") || ""),
+    phone: String(form.get("phone") || ""),
+    vehicle: String(form.get("vehicle") || ""),
+    service: String(form.get("service") || ""),
+    message: String(form.get("message") || ""),
+  };
+
+  setStatus("Sending...");
+
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to send");
+    }
+
+    formElement.reset();
+
+    setStatus("Thanks! Your inquiry has been sent.");
+  } catch (error) {
+    console.error(error);
+    setStatus("Something went wrong. Please try again.");
+  }
+}
   return <form className="contact-form" onSubmit={handleSubmit}>
     <div className="form-field"><label htmlFor="name">Name</label><input id="name" name="name" type="text" autoComplete="name" required /></div>
     <div className="form-field"><label htmlFor="email">Email</label><input id="email" name="email" type="email" autoComplete="email" required /></div>
